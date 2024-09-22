@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::middleware('can:checkout packages')->group(function (){
+    Route::middleware('can:checkout package')->group(function (){
         Route::get('/book/{packageTour:slug}', [FrontController::class, 'book'])
         ->name('front.book');
         Route::post('/book/save/{packageTour:slug}', [FrontController::class, 'book_store'])
